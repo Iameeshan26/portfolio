@@ -1,0 +1,52 @@
+:root {
+  --bg-main: #ffffff;
+  --bg-sub: #fcfcfc;
+  --text-primary: #000000;
+  --text-secondary: #4a4a4a;
+  --text-muted: #737373;
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  
+  --accent: #000000;
+  --accent-light: #333333;
+  --border: #eeeeee;
+  
+  --gradient-bw: linear-gradient(135deg, #000000 0%, #434343 100%);
+  --gradient-light: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+#root {
+  width: 100%;
+}
