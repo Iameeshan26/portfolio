@@ -282,7 +282,6 @@ const App = () => {
           </motion.div>
         </div>
 
-        {/* Blog Section */}
         <section id="blogs">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '48px' }}>
             <motion.h2 
@@ -294,132 +293,40 @@ const App = () => {
             >
               Blog
             </motion.h2>
-            <button 
-              onClick={() => setIsEditingBlogs(!isEditingBlogs)}
-              className="btn-edit-toggle"
-              style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '8px', 
-                padding: '10px 20px', 
-                borderRadius: '30px', 
-                border: '1px solid var(--border)',
-                background: isEditingBlogs ? 'var(--accent)' : 'transparent',
-                color: isEditingBlogs ? '#fff' : 'var(--text-primary)',
-                fontWeight: 600,
-                cursor: 'pointer'
-              }}
-            >
-              {isEditingBlogs ? <Check size={18} /> : <Edit2 size={18} />}
-              {isEditingBlogs ? 'Save Changes' : 'Edit Blogs'}
-            </button>
           </div>
           
           <div className="blogs-grid">
             {blogs.map((blog, idx) => (
               <motion.div 
                 key={idx}
-                className={`blog-card ${isEditingBlogs ? 'editing' : ''}`}
+                className="blog-card"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                {isEditingBlogs ? (
-                  <div className="blog-edit-form">
-                    <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
-                      <input 
-                        className="blog-input category"
-                        value={blog.category}
-                        onChange={(e) => handleUpdateBlog(idx, 'category', e.target.value)}
-                        placeholder="Category"
-                      />
-                      <input 
-                        className="blog-input date"
-                        value={blog.date}
-                        onChange={(e) => handleUpdateBlog(idx, 'date', e.target.value)}
-                        placeholder="Date"
-                      />
+                <>
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+                      <span className="tech-pill" style={{ background: 'var(--accent)', color: '#fff', border: 'none' }}>{blog.category}</span>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{blog.date}</span>
                     </div>
-                    <input 
-                      className="blog-input title"
-                      value={blog.title}
-                      onChange={(e) => handleUpdateBlog(idx, 'title', e.target.value)}
-                      placeholder="Blog Title"
-                    />
-                    <textarea 
-                      className="blog-textarea excerpt"
-                      value={blog.excerpt}
-                      onChange={(e) => handleUpdateBlog(idx, 'excerpt', e.target.value)}
-                      placeholder="Excerpt"
-                      rows={3}
-                    />
-                    <div className="blog-input-group">
-                      <LinkIcon size={16} />
-                      <input 
-                        className="blog-input link"
-                        value={blog.link || ''}
-                        onChange={(e) => handleUpdateBlog(idx, 'link', e.target.value)}
-                        placeholder="Article Drive Link / URL"
-                      />
-                    </div>
-                    <button 
-                      onClick={() => handleDeleteBlog(idx)}
-                      className="btn-delete-blog"
-                      title="Delete Blog"
-                    >
-                      <Trash2 size={16} /> Delete
-                    </button>
+                    <h3>{blog.title}</h3>
+                    <p className="blog-excerpt-read">{blog.excerpt}</p>
                   </div>
-                ) : (
-                  <>
-                    <div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
-                        <span className="tech-pill" style={{ background: 'var(--accent)', color: '#fff', border: 'none' }}>{blog.category}</span>
-                        <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{blog.date}</span>
-                      </div>
-                      <h3>{blog.title}</h3>
-                      <p className="blog-excerpt-read">{blog.excerpt}</p>
+                  {blog.link ? (
+                    <a href={blog.link} target="_blank" rel="noopener noreferrer" className="blog-meta link-btn" style={{ textDecoration: 'none' }}>
+                      <span>Read Article</span>
+                      <ArrowRight size={16} />
+                    </a>
+                  ) : (
+                    <div className="blog-meta" style={{ color: 'var(--text-muted)', cursor: 'default' }}>
+                      <span>Coming Soon..</span>
                     </div>
-                    {blog.link ? (
-                      <a href={blog.link} target="_blank" rel="noopener noreferrer" className="blog-meta link-btn" style={{ textDecoration: 'none' }}>
-                        <span>Read Article</span>
-                        <ArrowRight size={16} />
-                      </a>
-                    ) : (
-                      <div className="blog-meta" style={{ color: 'var(--text-muted)', cursor: 'default' }}>
-                        <span>Coming Soon..</span>
-                      </div>
-                    )}
-                  </>
-                )}
+                  )}
+                </>
               </motion.div>
             ))}
-            
-            {isEditingBlogs && (
-              <motion.button
-                className="blog-card add-new"
-                onClick={handleAddBlog}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                style={{ 
-                  display: 'flex', 
-                  flexDirection: 'column', 
-                  alignItems: 'center', 
-                  justifyContent: 'center', 
-                  gap: '12px',
-                  border: '2px dashed var(--border)',
-                  background: 'transparent',
-                  cursor: 'pointer',
-                  minHeight: '200px'
-                }}
-              >
-                <div style={{ padding: '12px', borderRadius: '50%', background: 'var(--border)' }}>
-                  <Plus size={24} />
-                </div>
-                <span style={{ fontWeight: 600, color: 'var(--text-secondary)' }}>Add New Blog</span>
-              </motion.button>
-            )}
           </div>
         </section>
 
