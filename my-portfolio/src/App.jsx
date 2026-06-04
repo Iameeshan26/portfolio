@@ -116,7 +116,7 @@ const App = () => {
               <a href="#contact" className="btn-cta">
                 Get in Touch <ArrowRight size={20} />
               </a>
-              <a href="/resumes/EeshanResume.pdf" download className="btn-cta" style={{ background: 'transparent', border: '1px solid var(--border)', color: 'var(--text-primary)' }}>
+              <a href="resumes/EeshanResume.pdf" download className="btn-cta" style={{ background: 'transparent', border: '1px solid var(--border)', color: 'var(--text-primary)' }}>
                 <Download size={20} /> Resume
               </a>
             </div>
@@ -439,7 +439,7 @@ const App = () => {
               <a href={`mailto:${data.contact.email}`} className="btn-cta">
                 <Mail size={20} /> Say Hello
               </a>
-              <a href="/resumes/EeshanResume.pdf" download className="btn-cta" style={{ background: 'transparent', border: '1px solid #fff', color: '#fff' }}>
+              <a href="resumes/EeshanResume.pdf" download className="btn-cta" style={{ background: 'transparent', border: '1px solid #fff', color: '#fff' }}>
                 <Download size={20} /> Resume
               </a>
               <a href={data.contact.linkedin} target="_blank" rel="noopener noreferrer" className="btn-cta" style={{ background: 'transparent', border: '1px solid #fff', color: '#fff' }}>
