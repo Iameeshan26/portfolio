@@ -10,7 +10,7 @@ export const portfolioData = {
   },
   education: {
     degree: "B.Tech in Computer Science and Engineering (AI & ML)",
-    institution: "Sri Venkateshwara College of Engineering",
+    institution: "Sri Venkateswara College of Engineering",
     cgpa: "8.93",
     period: "2022 - 2026",
   },
