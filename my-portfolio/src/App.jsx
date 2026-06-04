@@ -27,8 +27,13 @@ import './App.css';
 const App = () => {
   const [isEditingBlogs, setIsEditingBlogs] = useState(false);
   const [blogs, setBlogs] = useState(() => {
-    const savedBlogs = localStorage.getItem('portfolio_blogs');
-    return savedBlogs ? JSON.parse(savedBlogs) : portfolioData.blogs;
+    try {
+      const savedBlogs = localStorage.getItem('portfolio_blogs');
+      return savedBlogs ? JSON.parse(savedBlogs) : portfolioData.blogs;
+    } catch (e) {
+      console.error("Error loading blogs from localStorage:", e);
+      return portfolioData.blogs;
+    }
   });
 
   useEffect(() => {
