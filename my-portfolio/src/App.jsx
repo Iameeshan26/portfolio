@@ -314,7 +314,9 @@ const App = () => {
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
                       <span className="tech-pill" style={{ background: 'var(--accent)', color: '#fff', border: 'none' }}>{blog.category}</span>
-                      <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{blog.date}</span>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                        {blog.link ? "Available" : blog.date}
+                      </span>
                     </div>
                     <h3>{blog.title}</h3>
                     <p className="blog-excerpt-read">{blog.excerpt}</p>
