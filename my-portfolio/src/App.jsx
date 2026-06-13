@@ -296,7 +296,7 @@ const App = () => {
               viewport={{ once: true }}
               style={{ fontSize: '2.5rem', fontWeight: 800, margin: 0 }}
             >
-              Blog
+              Project Reports and Blogs.
             </motion.h2>
           </div>
           

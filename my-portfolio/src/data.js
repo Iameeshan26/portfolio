@@ -87,7 +87,7 @@ export const portfolioData = {
       excerpt: "Exploring the next generation of multi-tenant architectures and secure data isolation.",
       date: "Coming Soon",
       category: "SDE",
-      link: "",
+      link: "https://docs.google.com/document/d/1N6qrSpYi-72pPTZ9TI1UzZwXO-vint-X/edit?usp=drive_link&ouid=103363244376506514858&rtpof=true&sd=true",
     },
     {
       title: "Optimizing ML Pipelines",
