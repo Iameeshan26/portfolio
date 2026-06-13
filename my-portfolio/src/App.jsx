@@ -26,17 +26,11 @@ import './App.css';
 
 const App = () => {
   const [isEditingBlogs, setIsEditingBlogs] = useState(false);
-  const [blogs, setBlogs] = useState(() => {
-    try {
-      const savedBlogs = localStorage.getItem('portfolio_blogs');
-      return savedBlogs ? JSON.parse(savedBlogs) : portfolioData.blogs;
-    } catch (e) {
-      console.error("Error loading blogs from localStorage:", e);
-      return portfolioData.blogs;
-    }
-  });
+  const [blogs, setBlogs] = useState(portfolioData.blogs);
 
   useEffect(() => {
+    // Keep localStorage in sync if needed for session persistence, 
+    // but the source of truth is now data.js on initial load.
     localStorage.setItem('portfolio_blogs', JSON.stringify(blogs));
   }, [blogs]);
 
